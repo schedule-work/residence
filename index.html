@@ -50,9 +50,9 @@
         }
 
         .initial-title {
-            color: rgba(231, 155, 81, 0.8); /* 투명도를 높임 */
+            color: white;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* 그림자를 더 선명하게 변경 */
-            font-size: clamp(1.5em, 5vw, 2.5em); /* 뷰포트 너비에 따라 폰트 크기 조절 */
+            font-size: clamp(1.5em, 5vw, 1em); /* 뷰포트 너비에 따라 폰트 크기 조절 */
             font-weight: bold;
             /* 자간을 좁게 조정 */
             letter-spacing: 0.5px;
@@ -60,11 +60,11 @@
         }
 
         .initial-subtitle {
-            color: rgba(231, 155, 81, 0.8); /* 투명도를 높임 */
+            color: white;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* 그림자를 더 선명하게 변경 */
             font-family: 'Noto Sans KR', sans-serif; /* Noto Sans KR 폰트 적용 */
             font-weight: 500;
-            font-size: clamp(0.9em, 2vw, 1.2em);
+            font-size: clamp(0.9em, 2vw, 1em);
             margin-top: 5px;
             /* 자간을 좁게 조정 */
             letter-spacing: 0.2px;
@@ -1181,7 +1181,7 @@
                 </div>
                 <!-- 동영상 컨테이너를 반응형으로 변경 -->
                 <div class="video-player-container">
-                    <video controls muted autoplay loop>
+                    <video controls muted autoplay loop playsinline webkit-playsinline>
                         <source src="https://schedule-work.github.io/image/간호사-기숙사-입주-모집-안내 (3).mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
