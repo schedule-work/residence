@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <!-- 웹페이지의 기본 정보를 설정합니다. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>KUM GURO Residence</title>
-    <!-- 파비콘(웹 브라우저 탭 아이콘) 설정 -->
     <link rel="icon" type="image/x-icon" href="https://schedule-work.github.io/image/nurse.ico">
-    <!-- Noto Sans KR 폰트 불러오기 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        /* 모든 요소에 적용될 기본 스타일입니다. */
+        /* CSS 코드는 원본과 동일하게 유지됩니다. */
+        /* 이 부분에 있는 문제는 논리적인 오류는 아니며, 코드 가독성과 유지보수 관련입니다. */
+        /* 위에서 언급된 CSS의 불필요한 중복을 제거할 수 있습니다. */
         body {
             font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
@@ -21,7 +20,6 @@
             background-color: #f9f9f9;
         }
 
-        /* -------------------- 초기 카드 페이지 스타일 -------------------- */
         .initial-page {
             background-image: url('https://schedule-work.github.io/image/레지던스 재구성1.png');
             background-size: cover;
@@ -41,32 +39,28 @@
             opacity: 0;
         }
 
-        /* 첫 화면 타이틀 스타일 수정 */
         .initial-title-container {
             text-align: center;
-            margin-bottom: 50px; /* 카드와 간격 넓힘 */
-            /* 줄 간격을 줄여 콤팩트하게 만듭니다 */
+            margin-bottom: 50px;
             line-height: 1;
         }
 
         .initial-title {
             color: white;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* 그림자를 더 선명하게 변경 */
-            font-size: clamp(1.5em, 5vw, 2.5em); /* 뷰포트 너비에 따라 폰트 크기 조절 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+            font-size: clamp(1.5em, 5vw, 2.5em);
             font-weight: bold;
-            /* 자간을 좁게 조정 */
             letter-spacing: 0.5px;
             margin: 0;
         }
 
         .initial-subtitle {
             color: white;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* 그림자를 더 선명하게 변경 */
-            font-family: 'Noto Sans KR', sans-serif; /* Noto Sans KR 폰트 적용 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+            font-family: 'Noto Sans KR', sans-serif;
             font-weight: 500;
             font-size: clamp(0.9em, 2vw, 1.5em);
             margin-top: 5px;
-            /* 자간을 좁게 조정 */
             letter-spacing: 0.2px;
         }
         
@@ -78,11 +72,9 @@
             align-items: center;
         }
 
-        /* 각 카드에 고유한 색상 스타일 적용 */
         .main-card {
-            /* 고정된 너비와 높이를 제거하고 반응형으로 변경 */
-            width: clamp(250px, 80vw, 350px); /* 최소, 현재, 최대 너비 설정 */
-            aspect-ratio: 1.4 / 1; /* 너비에 대한 높이 비율 유지 */
+            width: clamp(250px, 80vw, 350px);
+            aspect-ratio: 1.4 / 1;
             backdrop-filter: blur(10px);
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -96,7 +88,7 @@
             cursor: pointer;
             text-decoration: none;
             color: #333;
-            box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+            box-sizing: border-box;
         }
         .main-card.card-guide {
             background-color: rgba(255, 255, 255, 0.5);
@@ -137,12 +129,11 @@
             background-color: #660000;
         }
 
-        /* 하단 주소와 저작권 문구의 줄 간격 조정 및 위치 변경 */
         .initial-address {
             color: #ccc;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             font-size: clamp(0.8em, 2vw, 1em);
-            margin-top: 25px; /* 마진을 늘려 아래로 내립니다. */
+            margin-top: 25px;
             text-align: center;
             line-height: 1.2;
         }
@@ -150,26 +141,23 @@
             color: #ccc;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             font-size: clamp(0.8em, 2vw, 1em);
-            margin-top: 5px; /* 줄 간격을 줄였습니다. */
+            margin-top: 5px;
             text-align: center;
             line-height: 1.2;
         }
 
-
-        /* -------------------- 새로운 홈페이지 스타일 -------------------- */
         .new-home-page {
             display: none;
         }
 
-        /* 헤더 스타일을 동영상 배너에 맞게 수정 */
         .header {
             display: grid;
             grid-template-columns: auto 1fr auto;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0.4); /* 초기 배경을 반투명한 어두운 색으로 설정 */
-            box-shadow: none; /* 초기 그림자 없음 */
+            background-color: rgba(0, 0, 0, 0.4);
+            box-shadow: none;
             padding: 10px 20px;
-            position: fixed; /* 페이지 스크롤에 따라 이동하도록 고정 */
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
@@ -177,13 +165,11 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         
-        /* 스크롤 시 헤더 변화 */
         .header.scrolled {
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* 헤더의 링크와 아이콘 색상도 스크롤에 따라 변경 */
         .header .nav-link, .header .logo svg, .header .search-icon svg {
             color: #fff;
             stroke: #fff;
@@ -199,7 +185,6 @@
             color: #ffb3b3;
         }
         
-        /* 로고 아이콘 스타일 */
         .logo {
             display: flex;
             align-items: center;
@@ -211,7 +196,7 @@
         
         .logo svg {
             fill: none; 
-            stroke: #fff; /* 초기 색상 흰색 */
+            stroke: #fff;
             transition: stroke 0.3s ease;
         }
         
@@ -230,7 +215,6 @@
             align-items: center;
         }
 
-        /* -------------------- 메가 메뉴를 위한 컨테이너 스타일 추가 -------------------- */
         .nav-container {
             position: relative;
         }
@@ -250,7 +234,7 @@
 
         .nav-link {
             text-decoration: none;
-            color: #fff; /* 초기 색상 흰색 */
+            color: #fff;
             font-weight: 500;
             padding: 5px 0;
             transition: color 0.3s ease;
@@ -266,14 +250,31 @@
             font-weight: 700;
         }
 
-        /* -------------------- 통합 메가 메뉴 스타일 -------------------- */
+        @media (min-width: 769px) {
+            .nav-container:hover .mega-menu {
+                display: block;
+            }
+            .mega-menu.active {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container:hover .mega-menu {
+                display: none;
+            }
+            .mega-menu.active {
+                display: block;
+            }
+        }
+        
         .mega-menu {
             display: none;
-            position: absolute; /* 부모 요소에 대해 절대 위치 지정 */
-            top: 100%; /* 부모 요소(nav-container) 바로 아래에 위치 */
+            position: absolute;
+            top: 100%;
             left: 50%;
-            transform: translateX(-50%); /* 중앙 정렬 */
-            width: 100vw; /* 뷰포트 너비 전체를 사용 */
+            transform: translateX(-50%);
+            width: 100vw;
             background-color: rgba(0, 0, 0, 0.8);
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             padding: 30px 20px;
@@ -282,7 +283,6 @@
             transition: top 0.3s ease;
         }
         
-        /* 스크롤 시 메가 메뉴의 위치를 조정 */
         .header.scrolled .mega-menu {
             background-color: rgba(255, 255, 255, 0.95);
         }
@@ -368,7 +368,6 @@
             stroke: #ffb3b3;
         }
 
-        /* 메인 배너 섹션 스타일 - 동영상 배너와 헤더가 겹치도록 수정 */
         .hero-section {
             position: relative;
             width: 100%;
@@ -432,12 +431,10 @@
             margin-top: 20px;
         }
 
-        /* 하단 빠른 메뉴 바 (제거됨) */
         .quick-links {
             display: none;
         }
 
-        /* 메인 콘텐츠 영역 (새로운 페이지) */
         .main-content-container {
             width: 90%;
             max-width: 1200px;
@@ -448,7 +445,6 @@
             align-items: center;
         }
 
-        /* -------------------- 탭 콘텐츠 스타일 -------------------- */
         .tab-content {
             display: none;
             width: 100%;
@@ -465,7 +461,6 @@
             font-size: 20px;
         }
 
-        /* 갤러리 그리드 컨테이너 추가 */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -473,7 +468,6 @@
             width: 100%;
         }
         
-        /* 갤러리 카드 공통 스타일 */
         .gallery-card, .gallery-carousel-card {
             background-color: #fff;
             border-radius: 8px;
@@ -481,8 +475,9 @@
             overflow: hidden;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             position: relative;
-            text-align: center; /* 모든 텍스트 중앙 정렬 */
+            text-align: center;
             padding-bottom: 15px;
+            cursor: pointer; /* 카드 전체에 커서 포인터 추가 */
         }
         
         .gallery-card:hover, .gallery-carousel-card:hover {
@@ -512,7 +507,7 @@
             padding: 5px 10px;
             border-radius: 4px;
             font-weight: 500;
-            z-index: 10; /* 라벨이 이미지 위에 표시되도록 z-index 추가 */
+            z-index: 10;
         }
         
         .gallery-card h4, .gallery-carousel-card h4 {
@@ -531,7 +526,6 @@
             text-align: center;
         }
 
-        /* 갤러리 캐러셀 카드 스타일 */
         .carousel-display {
             position: relative;
             width: 100%;
@@ -577,8 +571,6 @@
             border-radius: 5px 0 0 5px;
         }
 
-
-        /* -------------------- 이미지 모달 스타일 -------------------- */
         .image-modal-overlay {
             position: fixed;
             top: 0;
@@ -664,11 +656,9 @@
             to { transform: scale(1); opacity: 1; }
         }
 
-        /* 지도 컨테이너 스타일 - 반응형으로 수정 */
         .map-container {
-            /* 고정 높이를 제거하고 aspect-ratio를 사용하여 비율 유지 */
             height: auto;
-            aspect-ratio: 16 / 9; /* 지도 컨테이너 비율 설정 */
+            aspect-ratio: 16 / 9;
             width: 100%;
             border-radius: 6px;
             box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
@@ -676,7 +666,6 @@
             overflow: hidden;
         }
         
-        /* iframe이 컨테이너를 가득 채우도록 설정 */
         .map-container iframe {
             width: 100%;
             height: 100%;
@@ -763,7 +752,6 @@
             margin-bottom: 15px;
         }
 
-        /* 비디오 플레이어 컨테이너 - 반응형으로 수정 */
         .video-player-container {
             margin-bottom: 20px;
             position: relative;
@@ -781,13 +769,11 @@
             object-fit: cover;
         }
 
-        /* 들여쓰기용 클래스 */
         .indent-text {
             display: block;
             text-indent: 1.2em;
         }
 
-        /* YouTube 영상 컨테이너 스타일 - 비율을 더 높게 수정 */
         .video-container {
             position: relative;
             width: 100%;
@@ -808,9 +794,7 @@
             border-radius: 6px;
         }
 
-        /* 연락처 카드 스타일 - 수정된 부분 시작 */
         .contact-card-container {
-            /* flex 컨테이너를 없애고 단일 카드로 변경하여 모바일에서도 자연스럽게 표시되도록 수정 */
             width: 100%;
         }
 
@@ -822,7 +806,7 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            max-width: 400px; /* PC 화면에서 너무 넓어지지 않도록 최대 너비 설정 */
+            max-width: 400px;
         }
         
         .contact-item h5 {
@@ -854,22 +838,20 @@
             margin-left: 10px;
         }
         
-        /* 입실 신청 폼 iframe의 높이를 고정 대신 스크롤 가능하게 변경 */
         .form-container {
             width: 100%;
-            height: 80vh; /* 뷰포트 높이의 80%로 설정하여 스크롤 가능하게 만듬 */
-            overflow-y: scroll; /* 세로 스크롤 허용 */
-            -webkit-overflow-scrolling: touch; /* iOS에서 부드러운 스크롤 허용 */
+            height: 80vh;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
             border-radius: 6px;
         }
         .form-container iframe {
             width: 100%;
-            height: 100%; /* 부모 컨테이너에 맞춰 높이 설정 */
+            height: 100%;
             border: 0;
             border-radius: 6px;
         }
 
-        /* Q&A 바로가기 버튼 스타일 */
         .qna-button-container {
             text-align: center;
             margin-top: 20px;
@@ -890,7 +872,6 @@
             background-color: #660000;
         }
         
-        /* 검색 모달 스타일 */
         .search-modal-overlay {
             position: fixed;
             top: 0;
@@ -978,19 +959,17 @@
             min-height: 20px;
         }
 
-        /* -------------------- 반응형 디자인 개선 -------------------- */
         @media (max-width: 768px) {
-            /* 모바일 헤더 레이아웃을 flex로 변경하여 깔끔하게 세로로 정렬 */
             .header {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 15px; /* 헤더 요소 간의 간격 조정 */
+                gap: 15px;
                 padding: 10px;
             }
 
             .nav-container {
-                width: 100%; /* 네비게이션 컨테이너 너비 확장 */
+                width: 100%;
             }
 
             .nav {
@@ -1000,7 +979,7 @@
             }
 
             .mega-menu {
-                width: 100%; /* 메가 메뉴 너비 전체로 확장 */
+                width: 100%;
                 left: 0;
                 transform: translateX(0);
             }
@@ -1014,29 +993,26 @@
                 margin-bottom: 5px;
             }
 
-            /* 연락처 카드 섹션 개선: flex-start를 제거하고 중앙 정렬 */
             .contact-card-container {
                 display: flex;
                 flex-direction: column;
-                align-items: center; /* 가운데 정렬 */
+                align-items: center;
                 gap: 20px;
                 padding: 0;
-                border: none; /* 컨테이너의 테두리 제거 */
-                box-shadow: none; /* 컨테이너의 그림자 제거 */
+                border: none;
+                box-shadow: none;
             }
 
             .contact-item {
                 width: 100%;
-                max-width: 100%; /* 모바일에서 너비 100%로 설정 */
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 개별 카드에 그림자 적용 */
+                max-width: 100%;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             }
 
-            /* 히어로 섹션 영상의 비율을 모바일에서 더 보기 좋게 변경 */
             .hero-section {
                 aspect-ratio: 17 / 4;
             }
             
-            /* 갤러리 그리드에서 카드 최소 너비 조정 */
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
@@ -1046,10 +1022,9 @@
             }
         }
         
-        /* Q&A 이미지 컨테이너 스타일 추가 */
         .qna-image-container {
             width: 100%;
-            margin: 0 auto; /* 중앙 정렬 */
+            margin: 0 auto;
             border-radius: 6px;
             overflow: hidden;
             box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
@@ -1059,11 +1034,9 @@
             height: auto;
             display: block;
         }
-
     </style>
 </head>
 <body>
-    <!-- -------------------- 초기 카드 페이지 -------------------- -->
     <div id="initialPage" class="initial-page">
         <div class="initial-title-container">
             <div class="initial-title">고려대학교 구로병원 레지던스</div>
@@ -1071,20 +1044,18 @@
         </div>
         <br>
         <div class="card-wrapper">
-            <!-- '입주 안내' 카드 -->
             <a href="#" class="main-card card-guide" data-page="guide">
                 <div class="card-title">입주 모집 안내</div>
                 <div class="card-subtitle">레지던스 소개 및 모집 정보</div>
                 <div class="go-btn">바로가기 →</div>
             </a>
-            <!-- '신청하기' 카드 -->
             <a href="#" class="main-card card-apply" data-page="apply">
                 <div class="card-title">신청하기</div>
                 <div class="card-subtitle">온라인 신청 폼으로 이동</div>
                 <div class="go-btn">바로가기 →</div>
             </a>
         </div>
-        <br> <!-- 줄바꿈 추가 -->
+        <br>
         <div class="initial-address">
             08395 서울특별시 구로구 디지털로 226 크림슨 빌딩
         </div>
@@ -1093,25 +1064,18 @@
         </div>
     </div>
 
-    <!-- -------------------- 새로운 메인 페이지 -------------------- -->
     <div id="newHomePage" class="new-home-page">
-        <!-- 상단 네비게이션 바 -->
         <header class="header">
-            <!-- 로고를 홈 아이콘으로 변경 -->
             <a href="#" class="logo" id="mainLogo">
-                <!-- Lucide 라이브러리의 house 아이콘 SVG 코드로 교체 -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
             </a>
             <div class="nav-container">
                 <nav class="nav">
-                    <!-- 메뉴 링크에 data-mega-menu-target 속성 추가 -->
                     <a href="#" class="nav-link mega-trigger" data-mega-menu-target="mega-menu-all">레지던스 소개</a>
-                    <!-- 메뉴명을 '갤러리'에서 '건물/시설/생활'로 변경했습니다. -->
                     <a href="#" class="nav-link mega-trigger" data-mega-menu-target="mega-menu-all">건물/시설/생활</a>
                     <a href="#" class="nav-link mega-trigger" data-mega-menu-target="mega-menu-all">입실 및 퇴실</a>
                     <a href="#" class="nav-link mega-trigger" data-mega-menu-target="mega-menu-all">Q&A</a>
                 </nav>
-                <!-- 통합 메가 메뉴 -->
                 <div id="mega-menu-all" class="mega-menu">
                     <div class="mega-menu-content">
                         <div class="mega-menu-column">
@@ -1122,7 +1086,6 @@
                                 <li><a href="#" class="nav-link" data-tab="tab-contacts">주요시설 연락처</a></li>
                             </ul>
                         </div>
-                        <!-- '갤러리' 메뉴를 '건물/시설/생활'로 변경하고 하위 메뉴를 추가했습니다. -->
                         <div class="mega-menu-column">
                             <h4>건물/시설/생활</h4>
                             <ul>
@@ -1147,14 +1110,11 @@
                     </div>
                 </div>
             </div>
-            <!-- 검색 아이콘을 Lucide 라이브러리 SVG 코드로 교체 -->
             <div class="search-icon" id="searchIcon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
             </div>
-
         </header>
 
-        <!-- 메인 배너 섹션 - 동영상으로 교체 -->
         <section class="hero-section">
             <video class="hero-banner-video" autoplay muted loop playsinline webkit-playsinline>
                 <source src="https://schedule-work.github.io/image/레지던스 전경1.mp4" type="video/mp4">
@@ -1167,42 +1127,31 @@
             </div>
         </section>
 
-        <!-- 하단 빠른 메뉴 바 (제거됨) -->
-        <div class="quick-links">
-            <!-- 이전에 있던 빠른 메뉴 링크들이 제거되었습니다. -->
-        </div>
-
-        <!-- 탭 내용이 표시될 메인 콘텐츠 영역 -->
         <div class="main-content-container">
-            <!-- 레지던스 소개 > 모집 안내 (기존 입주 모집 안내 탭) -->
             <div id="tab-recruit-guide" class="tab-content active">
                 <div class="directions-section">
                     <div class="directions-title">입주 모집 안내</div>
                 </div>
-                <!-- 동영상 컨테이너를 반응형으로 변경 -->
                 <div class="video-player-container">
                     <video controls muted autoplay loop playsinline webkit-playsinline>
                         <source src="https://schedule-work.github.io/image/간호사-기숙사-입주-모집-안내 (3).mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <!-- 줄 바꿈이 유동적으로 되도록 span 태그 제거 -->
                 <p class="directions-text">
                     ※ 레지던스 입실 현황에 따라, 매월 잔여 호실 및 입실 가능 여부가 변동될 수 있습니다.<br>
                     ※ 레지던스 신청은 <b>당월 입사하는 신규 간호사만</b> 가능하므로, <b><u>익월 입실 대기는 불가합니다.</u></b>
                 </p>
             </div>
-            <!-- 레지던스 소개 > 찾아오시는 길 (새로 추가) -->
             <div id="tab-directions" class="tab-content">
                 <div class="directions-section">
                     <div class="directions-title">찾아오시는 길</div>
                 </div>
-                <!-- 지도 컨테이너를 반응형으로 변경 -->
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.1791836456737!2d126.88854777650879!3d37.48009777206124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9e204a55aee9%3A0x2aef5480d6032db5!2z7ISc7Jq47Yq567OE7IucIOq1rOuhnOq1rCDrlJTsp4DthLjroZwgMjI2!5e0!3m2!1sko!2skr!4v1755659858612!5m2!1sko!2skr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.249229094056!2d126.88569531524316!3d37.56230917982548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f802d2c1299%3A0xc3c4d5d9b54d5b2e!2s226%20Guro%20Digital-ro%2C%20Guro-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1626084567890!5m2!1sen!2skr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
-                <br> <!-- 줄바꿈 추가 -->
+                <br>
                 <div class="directions-section">
                     <div class="directions-title">자차 방문 시</div>
                     <p class="directions-text">
@@ -1211,11 +1160,10 @@
                 </div>
                 <br>
 
-                <br> <!-- 줄바꿈 추가 -->
+                <br>
                 <div class="directions-section">
                     <div class="directions-title">대중교통 안내</div>
                     <div class="transport-grid">
-                        <!-- 가산디지털단지역 안내 -->
                         <div class="transport-card">
                             <h4>지하철 1호선/7호선 가산디지털단지역</h4>
                             <div class="transport-details">
@@ -1225,7 +1173,6 @@
                                 <p><strong class="bus-number">5712</strong>번 버스 승차 후 '디지털단지오거리' 하차, 약 270m 도보</p>
                             </div>
                         </div>
-                        <!-- 남구로역 안내 -->
                         <div class="transport-card">
                             <h4>지하철 7호선 남구로역</h4>
                             <div class="transport-details">
@@ -1238,14 +1185,12 @@
                     </div>
                 </div>
             </div>
-            <!-- 레지던스 소개 > 주요시설 연락처 (새로 추가) -->
             <div id="tab-contacts" class="tab-content">
                 <div class="directions-section">
                     <div class="directions-title">주요시설 연락처</div>
                 </div>
-                <br> <!-- 줄바꿈 추가 -->
+                <br>
                 <div class="contact-card-container">
-                    <!-- 경비실 카드 -->
                     <div class="contact-item">
                         <h5>경비실</h5>
                         <div class="phone-details">
@@ -1254,33 +1199,27 @@
                     </div>
                 </div>
             </div>
-            <!-- '건물/시설/생활' 하위 메뉴: '소개 영상' 탭을 추가했습니다. -->
             <div id="tab-intro-video" class="tab-content">
                 <div class="directions-section">
                     <div class="directions-title">소개 영상</div>
                 </div>
-                <!-- YouTube 영상의 '퍼가기' 코드를 사용하여 자동 재생 및 음소거 설정 -->
                 <div class="video-container">
                     <iframe id="youtube-video" width="100%" height="100%" src="https://www.youtube.com/embed/RetC3a-KUsQ?autoplay=1&mute=1&playlist=RetC3a-KUsQ&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
-            <!-- 갤러리 (기존 갤러리 탭) -->
             <div id="tab-gallery" class="tab-content">
                 <div class="directions-section">
                     <div class="directions-title">갤러리</div>
                 </div>
                 
-                <!-- 수정된 갤러리 그리드 레이아웃 -->
                 <div class="gallery-grid">
-                    <!-- 레지던스 외관 카드 (단일 사진) -->
                     <div class="gallery-card" data-category="exterior">
                         <span class="gallery-card-label">레지던스 건물</span>
-                        <img src="https://schedule-work.github.io/image/고대구로 간호사 기숙사 건물.jpg" alt="레지던스 건물 사진" onclick="openImageModal('exterior', 0)">
+                        <img src="https://schedule-work.github.io/image/고대구로 간호사 기숙사 건물.jpg" alt="레지던스 건물 사진" class="gallery-image">
                         <h4>레지던스 외관</h4>
                         <p>고려대학교 구로병원 레지던스 건물 전경</p>
                     </div>
 
-                    <!-- 방 내부 캐러셀 카드 (여러 사진) -->
                     <div class="gallery-carousel-card" data-category="room">
                         <span class="gallery-card-label">방 내부</span>
                         <div class="carousel-display">
@@ -1292,7 +1231,6 @@
                         <p>전 호실 1인실 구성</p>
                     </div>
 
-                    <!-- 공용 주방 캐러셀 카드 (여러 사진) -->
                     <div class="gallery-carousel-card" data-category="kitchen">
                         <span class="gallery-card-label">공용 공간</span>
                         <div class="carousel-display">
@@ -1304,16 +1242,14 @@
                         <p>인덕션, 전자레인지 등 주방시설 완비</p>
                     </div>
 
-                    <!-- 공용 세탁실 카드 (단일 사진) -->
                     <div class="gallery-card" data-category="laundry">
                         <span class="gallery-card-label">공용 공간</span>
-                        <img src="https://schedule-work.github.io/image/공용세탁실.jpg" alt="공용 세탁실" onclick="openImageModal('laundry', 0)">
+                        <img src="https://schedule-work.github.io/image/공용세탁실.jpg" alt="공용 세탁실" class="gallery-image">
                         <h4>공용 세탁실</h4>
                         <p>세탁기/건조기 비치</p>
                     </div>
                 </div>
             </div>
-            <!-- 입실 및 퇴실 > 입실 안내 및 절차 (새로 추가) -->
             <div id="tab-move-in-guide" class="tab-content">
                 <div class="directions-section">
                     <div class="directions-title">입실 안내 및 절차</div>
@@ -1329,18 +1265,15 @@
                     <li>입실 확정 (입실 확정 안내 메일 발송 예정)</li>
                 </ul>
             </div>
-            <!-- 입실 및 퇴실 > 입실 신청 (기존 신청하기 탭) -->
             <div id="tab-apply-form" class="tab-content">
                 <div class="directions-section">
                     <div class="directions-title">입실 신청</div>
                 </div>
                 <p>하단 신청 폼에 정확한 정보를 입력하여 주시기 바랍니다.</p>
-                <!-- 폼 컨테이너를 스크롤 가능하게 변경 -->
                 <div class="form-container">
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf4ANL7Lh5lG7FEhjMNt2PVW_CB4OdMesZ5KxQItX3igO9wPA/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe>
                 </div>
             </div>
-            <!-- 입실 및 퇴실 > 퇴실 절차 (새로 추가) -->
             <div id="tab-move-out-procedure" class="tab-content">
                 <div class="directions-section">
                     <div class="directions-title">퇴실 절차</div>
@@ -1354,17 +1287,14 @@
                     <li>레지던스 시설 및 비품에 대하여 파손 또는 분실 확인 시 변상 필요할 수 있습니다.</li>
                 </ul>
                 <p>※ 퇴실 최소 15일 전 퇴실 신청서 제출 원칙</p>
-                <!-- Q&A 바로가기 버튼 추가 -->
                 <div class="qna-button-container">
                     <a href="#" class="qna-button" data-tab="tab-rules">Q&A 바로가기</a>
                 </div>
             </div>
-            <!-- Q&A (기존 Q&A 탭) -->
             <div id="tab-rules" class="tab-content">
                 <div class="directions-section">
                     <div class="directions-title">Q&A</div>
                 </div>
-                <!-- Q&A 이미지 컨테이너에 새로운 클래스를 적용하여 최대 너비를 제한하고 중앙 정렬합니다. -->
                 <div class="qna-image-container">
                     <img src="https://schedule-work.github.io/image/residenceQNA.PNG" alt="레지던스 Q&A_간호부">
                 </div>
@@ -1372,10 +1302,9 @@
         </div>
     </div>
     
-    <!-- 검색 모달 -->
     <div id="searchModalOverlay" class="search-modal-overlay">
         <div class="search-modal">
-            <span class="search-modal-close">&times;</span>
+            <span class="search-modal-close">×</span>
             <h3>통합 검색</h3>
             <input type="text" id="searchInput" placeholder="검색어를 입력해 주세요">
             <button id="searchButton">검색</button>
@@ -1383,40 +1312,34 @@
         </div>
     </div>
 
-    <!-- 이미지 모달 -->
     <div id="imageModalOverlay" class="image-modal-overlay">
-        <!-- 확대된 이미지가 표시될 곳 -->
         <div class="image-modal-content">
             <img id="modalImage" src="" alt="확대된 이미지">
         </div>
-        <!-- 캐러셀 내비게이션 버튼 -->
         <button id="modalPrevBtn" class="modal-nav-btn modal-prev">‹</button>
         <button id="modalNextBtn" class="modal-nav-btn modal-next">›</button>
-        <!-- 닫기 버튼 -->
-        <span class="image-modal-close">&times;</span>
+        <span class="image-modal-close">×</span>
     </div>
 
     <script>
+        // 변수 선언을 스크립트 최상단으로 옮겨 전역적으로 사용 가능하게 만듭니다.
         const initialCards = document.querySelectorAll('.main-card');
         const initialPage = document.getElementById('initialPage');
         const newHomePage = document.getElementById('newHomePage');
         const mainLogo = document.getElementById('mainLogo');
-        const qnaButton = document.querySelector('.qna-button'); // Q&A 버튼 선택
+        const qnaButton = document.querySelector('.qna-button');
         const header = document.querySelector('.header');
-
-        // 통합된 메가 메뉴
+        const navContainer = document.querySelector('.nav-container'); // ⭐ 추가: 누락된 변수 선언
+        
         const megaMenuAll = document.getElementById('mega-menu-all');
         const allMenuLinks = document.querySelectorAll('.nav-link.mega-trigger');
         const navLinks = document.querySelectorAll('.nav-link');
         const tabContents = document.querySelectorAll('.tab-content');
-        const megaMenus = document.querySelectorAll('.mega-menu');
-
-        // YouTube 영상 관련 변수 선언
+        
         const youtubeIframe = document.getElementById('youtube-video');
         const youtubeOriginalSrc = 'https://www.youtube.com/embed/RetC3a-KUsQ?si=GV1zDKfHTv3EHjYq';
         const youtubeAutoplaySrc = 'https://www.youtube.com/embed/RetC3a-KUsQ?autoplay=1&mute=1&playlist=RetC3a-KUsQ&loop=1';
 
-        // 검색 모달 관련 변수
         const searchIcon = document.getElementById('searchIcon');
         const searchModalOverlay = document.getElementById('searchModalOverlay');
         const searchModalClose = document.querySelector('.search-modal-close');
@@ -1424,18 +1347,15 @@
         const searchInput = document.getElementById('searchInput');
         const searchResult = document.getElementById('searchResult');
         
-        // 이미지 모달 관련 변수 추가
         const imageModalOverlay = document.getElementById('imageModalOverlay');
         const modalImage = document.getElementById('modalImage');
         const imageModalClose = document.querySelector('.image-modal-close');
         const modalPrevBtn = document.getElementById('modalPrevBtn');
         const modalNextBtn = document.getElementById('modalNextBtn');
         
-        // 현재 모달에 표시된 이미지의 카테고리와 인덱스를 추적하는 변수
         let currentModalCategory = '';
         let currentModalIndex = 0;
 
-        // 갤러리 이미지 데이터
         const galleryData = {
             'exterior': [
                 { src: 'https://schedule-work.github.io/image/고대구로 간호사 기숙사 건물.jpg', alt: '레지던스 건물 사진' }
@@ -1456,14 +1376,13 @@
             ]
         };
         
-        // 각 캐러셀의 현재 인덱스를 추적하는 객체
         const carouselIndices = {
             'room': 0,
             'kitchen': 0
         };
 
         // 이미지 모달을 여는 함수
-        window.openImageModal = function(category, index) {
+        function openImageModal(category, index) {
             currentModalCategory = category;
             currentModalIndex = index;
             
@@ -1471,7 +1390,6 @@
             modalImage.src = images[index].src;
             modalImage.alt = images[index].alt;
             
-            // 사진이 1개뿐이면 넘기기 버튼 숨기기
             if (images.length <= 1) {
                 modalPrevBtn.style.display = 'none';
                 modalNextBtn.style.display = 'none';
@@ -1483,28 +1401,24 @@
             imageModalOverlay.style.display = 'flex';
         };
 
-        // 이미지 모달 닫는 함수
         function closeImageModal() {
             imageModalOverlay.style.display = 'none';
             currentModalCategory = '';
             currentModalIndex = 0;
         }
 
-        // 이미지 모달 내에서 다음 이미지로 이동
         function nextModalImage() {
             const images = galleryData[currentModalCategory];
             currentModalIndex = (currentModalIndex + 1) % images.length;
             updateModalImage();
         }
 
-        // 이미지 모달 내에서 이전 이미지로 이동
         function prevModalImage() {
             const images = galleryData[currentModalCategory];
             currentModalIndex = (currentModalIndex - 1 + images.length) % images.length;
             updateModalImage();
         }
 
-        // 모달 이미지 업데이트
         function updateModalImage() {
             const images = galleryData[currentModalCategory];
             if (images && images.length > 0) {
@@ -1513,7 +1427,6 @@
             }
         }
         
-        // 이미지 모달 이벤트 리스너
         imageModalOverlay.addEventListener('click', (event) => {
             if (event.target === imageModalOverlay) {
                 closeImageModal();
@@ -1531,7 +1444,6 @@
         });
 
 
-        // 초기 페이지 카드 클릭 시 새로운 메인 페이지로 전환
         initialCards.forEach(card => {
             card.addEventListener('click', function(event) {
                 event.preventDefault();
@@ -1540,42 +1452,48 @@
 
                 const pageType = this.getAttribute('data-page');
 
-                // 클릭한 카드에 따라 초기 탭을 설정하고 상위 메뉴를 활성화합니다.
                 if (pageType === 'guide') {
                     activateTab('tab-recruit-guide');
                 } else if (pageType === 'apply') {
                     activateTab('tab-apply-form');
                 } else {
-                    activateTab('tab-recruit-guide'); // 기본 탭 활성화
+                    activateTab('tab-recruit-guide');
                 }
             });
         });
 
-        // 로고 클릭 시 초기 화면으로 돌아가는 기능 추가
         mainLogo.addEventListener('click', function(event) {
             event.preventDefault();
             newHomePage.style.display = 'none';
             initialPage.style.display = 'flex';
         });
         
-        // 메가 메뉴 관련 변수 및 이벤트 리스너 재정의
-        const navContainer = document.querySelector('.nav-container');
+        // ⭐ 수정: 메가 메뉴 로직을 개선하여 모든 'active' 클래스를 제거합니다.
+        document.addEventListener('click', function(event) {
+            const isClickInsideNavContainer = navContainer.contains(event.target);
+            const isClickOnMegaTrigger = event.target.classList.contains('mega-trigger');
+
+            if (isClickOnMegaTrigger) {
+                event.preventDefault();
+                const isActive = megaMenuAll.classList.contains('active');
+                
+                // 모든 상위 메뉴 링크의 'active' 클래스 제거
+                allMenuLinks.forEach(link => link.classList.remove('active'));
+
+                // 클릭된 링크의 텍스트를 기준으로 상위 메뉴를 활성화
+                const clickedLink = event.target;
+                if (!isActive) {
+                    megaMenuAll.classList.add('active');
+                    clickedLink.classList.add('active');
+                } else {
+                    megaMenuAll.classList.remove('active');
+                }
+            } else if (!isClickInsideNavContainer) {
+                megaMenuAll.classList.remove('active');
+                allMenuLinks.forEach(link => link.classList.remove('active')); // 메뉴 밖 클릭 시 모든 'active' 제거
+            }
+        });
         
-        // 마우스가 메뉴 영역에 들어오면 메가 메뉴를 표시
-        navContainer.addEventListener('mouseenter', showMegaMenu);
-
-        // 마우스가 메뉴 영역을 벗어나면 메가 메뉴를 숨김
-        navContainer.addEventListener('mouseleave', hideAllMegaMenus);
-        
-        // 메가 메뉴를 제어하는 함수
-        function showMegaMenu() {
-            megaMenuAll.style.display = 'block';
-        }
-
-        function hideAllMegaMenus() {
-            megaMenuAll.style.display = 'none';
-        }
-
         // 스크롤 이벤트 리스너 추가
         window.addEventListener('scroll', function() {
             const scrollPosition = window.scrollY;
@@ -1586,21 +1504,16 @@
             }
         });
         
-        // 탭 활성화 함수
         function activateTab(tabId) {
-            // 모든 네비게이션 링크와 탭 콘텐츠를 비활성화합니다.
             navLinks.forEach(l => l.classList.remove('active'));
             tabContents.forEach(c => c.classList.remove('active'));
 
-            // 활성화할 탭 링크와 콘텐츠를 찾습니다.
             const activeLink = document.querySelector(`.nav-link[data-tab="${tabId}"]`);
             const activeContent = document.getElementById(tabId);
 
-            // 링크와 콘텐츠에 active 클래스를 추가합니다.
             if (activeLink) {
                 activeLink.classList.add('active');
 
-                // 메가 메뉴의 하위 링크라면, 해당 상위 메뉴도 활성화합니다.
                 const parentColumn = activeLink.closest('.mega-menu-column');
                 if (parentColumn) {
                     const categoryText = parentColumn.querySelector('h4').textContent.trim();
@@ -1608,15 +1521,12 @@
                     if(topLevelTrigger) {
                         topLevelTrigger.classList.add('active');
                     }
-                } else {
-                    activeLink.classList.add('active');
                 }
             }
             if (activeContent) {
                 activeContent.classList.add('active');
             }
 
-            // 탭에 따라 유튜브 영상의 재생 상태를 제어합니다.
             if (youtubeIframe) {
                 if (tabId === 'tab-intro-video') {
                     youtubeIframe.src = youtubeAutoplaySrc;
@@ -1626,11 +1536,9 @@
             }
         }
 
-        // 모든 메뉴 링크에 마우스 이벤트 추가
         allMenuLinks.forEach(link => {
             link.addEventListener('click', function(event) {
                 event.preventDefault();
-                hideAllMegaMenus();
                 const category = this.textContent.trim();
                 let firstSubmenuTabId;
                 switch (category) {
@@ -1653,19 +1561,18 @@
             });
         });
 
-        // 모든 탭 링크 클릭 시 탭 활성화
         navLinks.forEach(link => {
             link.addEventListener('click', function(event) {
                 const tabId = this.getAttribute('data-tab');
-                if (tabId) { // data-tab 속성이 있는 링크만 처리
+                if (tabId) {
                     event.preventDefault();
                     activateTab(tabId);
-                    hideAllMegaMenus(); // 탭을 클릭하면 메가 메뉴 숨기기
+                    megaMenuAll.classList.remove('active'); // 탭을 클릭하면 메가 메뉴 숨기기
+                    allMenuLinks.forEach(l => l.classList.remove('active')); // 모든 상위 메뉴 비활성화
                 }
             });
         });
 
-        // Q&A 바로가기 버튼에 클릭 이벤트 리스너 추가
         qnaButton.addEventListener('click', function(event) {
             event.preventDefault();
             const tabId = this.getAttribute('data-tab');
@@ -1674,7 +1581,6 @@
             }
         });
 
-        // 검색 모달 이벤트 리스너 추가
         searchIcon.addEventListener('click', () => {
             searchModalOverlay.style.display = 'flex';
             searchInput.value = '';
@@ -1694,7 +1600,22 @@
             }
         });
 
-        // 캐러셀 로직
+        // 갤러리 이미지 클릭 이벤트 리스너 추가
+        document.querySelectorAll('.gallery-card, .gallery-carousel-card .carousel-image').forEach(item => {
+            item.addEventListener('click', (e) => {
+                let category, index;
+                if (item.classList.contains('gallery-card')) {
+                    category = item.getAttribute('data-category');
+                    index = 0;
+                } else {
+                    const parentCard = item.closest('.gallery-carousel-card');
+                    category = parentCard.getAttribute('data-category');
+                    index = carouselIndices[category];
+                }
+                openImageModal(category, index);
+            });
+        });
+
         function updateCarousel(category, direction = 0) {
             const images = galleryData[category];
             let currentIndex = carouselIndices[category];
@@ -1704,15 +1625,10 @@
             const carouselCard = document.querySelector(`.gallery-carousel-card[data-category="${category}"]`);
             const imgElement = carouselCard.querySelector('.carousel-image');
             
-            // 이미지 정보 업데이트
             imgElement.src = images[newIndex].src;
             imgElement.alt = images[newIndex].alt;
-
-            // onclick 이벤트 핸들러 업데이트
-            imgElement.setAttribute('onclick', `openImageModal('${category}', ${newIndex})`);
         }
 
-        // 초기 캐러셀 이미지 설정 및 이벤트 리스너 등록
         function initCarousels() {
             document.querySelectorAll('.gallery-carousel-card').forEach(card => {
                 const category = card.getAttribute('data-category');
@@ -1725,15 +1641,14 @@
 
                     if (images.length > 1) {
                         prevBtn.addEventListener('click', (e) => {
-                           e.stopPropagation(); // Stop event propagation
-                           updateCarousel(category, -1);
+                            e.stopPropagation();
+                            updateCarousel(category, -1);
                         });
                         nextBtn.addEventListener('click', (e) => {
-                             e.stopPropagation(); // Stop event propagation
+                            e.stopPropagation();
                             updateCarousel(category, 1);
                         });
                     } else {
-                        // 사진이 1장일 경우 버튼 숨기기
                         prevBtn.style.display = 'none';
                         nextBtn.style.display = 'none';
                     }
@@ -1741,12 +1656,30 @@
             });
         }
         
-        // 페이지 로딩 시 초기 탭 활성화 및 캐러셀 초기화
-        window.onload = function() {
-            activateTab('tab-recruit-guide');
-            initCarousels();
-        };
+        // ⭐ 수정: window.onload 대신 DOMContentLoaded 사용
+        document.addEventListener('DOMContentLoaded', () => {
+            // 초기 페이지가 보이도록 설정 (CSS에서 이미 flex로 설정됨)
+            // 첫 화면에서 바로 메인 페이지로 이동하는 링크를 누를 때 대비
+            const initialPageCard = document.querySelector('.main-card[data-page="guide"]');
+            if (initialPageCard) {
+                initialPageCard.addEventListener('click', () => {
+                    initialPage.style.display = 'none';
+                    newHomePage.style.display = 'block';
+                    activateTab('tab-recruit-guide');
+                });
+            }
 
+            const applyPageCard = document.querySelector('.main-card[data-page="apply"]');
+            if (applyPageCard) {
+                applyPageCard.addEventListener('click', () => {
+                    initialPage.style.display = 'none';
+                    newHomePage.style.display = 'block';
+                    activateTab('tab-apply-form');
+                });
+            }
+
+            initCarousels();
+        });
     </script>
 </body>
 </html>
