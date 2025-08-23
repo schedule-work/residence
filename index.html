@@ -1190,7 +1190,7 @@
                     <div class="directions-title">찾아오시는 길</div>
                 </div>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.666993175899!2d126.88377707640248!3d37.5332508272576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f8074c6e5e7%3A0xb3a8f4c4a478c3c2!2z7JWI65Oc7JuQ64yAIOyKpOuMgCDrsojri4jruJjrqpgg7KSR7J6Q!5e0!3m2!1sko!2skr!4v1724225010078!5m2!1sko!2skr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.666993175899!2d126.88377707640248!3d37.5332508272576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9e204a55aee9%3A0x2aef5480d6032db5!2z7ISc7Jq47Yq567OE7IucIOq1rOuhnOq1rCDrlJTsp4DthLjroZwgMjI2!5e0!3m2!1sko!2skr!4v1724490000000!5m2!1sko!2skr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
                 <br>
@@ -1508,7 +1508,6 @@
             initialPage.style.display = 'flex';
         });
 
-        // ⭐ 수정된 JavaScript 로직 (이 부분을 다시 수정했습니다.)
         allMenuLinks.forEach(link => {
             link.addEventListener('click', function(event) {
                 event.stopPropagation();
@@ -1523,13 +1522,13 @@
                     megaMenuAll.classList.add('active');
                     this.classList.add('active');
                     
-                    // ⭐ 추가된 코드: 해당 상위 메뉴의 첫 번째 하위 메뉴를 활성화합니다.
-                    // 상위 메뉴 텍스트를 기준으로 해당 컬럼을 찾습니다.
                     const clickedCategoryText = this.textContent.trim();
-                    const megaMenuColumn = Array.from(megaMenuAll.querySelectorAll('.mega-menu-column h4')).find(h4 => h4.textContent.trim() === clickedCategoryText)?.closest('.mega-menu-column');
+                    const megaMenuColumn = Array.from(megaMenuAll.querySelectorAll('.mega-menu-column h4'))
+                                                .find(h4 => h4.textContent.trim() === clickedCategoryText)
+                                                ?.closest('.mega-menu-column');
                     
                     if (megaMenuColumn) {
-                        const firstSubmenuLink = megaMenuColumn.querySelector('.nav-link');
+                        const firstSubmenuLink = megaMenuColumn.querySelector('.nav-link[data-tab]');
                         if (firstSubmenuLink) {
                             activateTab(firstSubmenuLink.getAttribute('data-tab'));
                         }
