@@ -1012,7 +1012,8 @@
                 transform: translateX(0);
                 width: 100%;
                 height: calc(100vh - 50px);
-                background-color: rgba(255, 255, 255, 0.95);
+                /* 모바일에서 다크 모드 배경으로 변경 */
+                background-color: rgba(0, 0, 0, 0.9);
                 overflow-y: auto;
                 padding: 20px;
                 box-sizing: border-box;
@@ -1033,18 +1034,19 @@
                 margin-bottom: 5px;
             }
             
-            .mega-menu-column h4, .mega-menu-column a {
-                color: #333; /* 모바일 메뉴 텍스트 색상 변경 */
-            }
-
+            /* 모바일 메뉴 텍스트 색상을 밝게 변경 */
             .mega-menu-column h4 {
-                border-bottom: 2px solid #990000;
+                border-bottom: 2px solid #ff9999;
                 padding-bottom: 5px;
-                color: #990000;
+                color: #ff9999;
+            }
+            
+            .mega-menu-column a {
+                color: #f0f0f0;
             }
 
             .mega-menu-column a:hover {
-                color: #990000;
+                color: #ffb3b3;
             }
 
             .contact-card-container {
