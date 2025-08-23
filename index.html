@@ -1508,7 +1508,7 @@
             initialPage.style.display = 'flex';
         });
 
-        // ⭐ 수정된 JavaScript 로직
+        // ⭐ 수정된 JavaScript 로직 (이 부분을 다시 수정했습니다.)
         allMenuLinks.forEach(link => {
             link.addEventListener('click', function(event) {
                 event.stopPropagation();
@@ -1522,6 +1522,18 @@
                 if (!isThisLinkActive) {
                     megaMenuAll.classList.add('active');
                     this.classList.add('active');
+                    
+                    // ⭐ 추가된 코드: 해당 상위 메뉴의 첫 번째 하위 메뉴를 활성화합니다.
+                    // 상위 메뉴 텍스트를 기준으로 해당 컬럼을 찾습니다.
+                    const clickedCategoryText = this.textContent.trim();
+                    const megaMenuColumn = Array.from(megaMenuAll.querySelectorAll('.mega-menu-column h4')).find(h4 => h4.textContent.trim() === clickedCategoryText)?.closest('.mega-menu-column');
+                    
+                    if (megaMenuColumn) {
+                        const firstSubmenuLink = megaMenuColumn.querySelector('.nav-link');
+                        if (firstSubmenuLink) {
+                            activateTab(firstSubmenuLink.getAttribute('data-tab'));
+                        }
+                    }
                 }
             });
         });
