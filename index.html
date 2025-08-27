@@ -662,7 +662,7 @@
         }
         
         .image-modal-close:hover {
-            color: #ddd;
+            color: #333;
         }
 
         @keyframes zoomIn {
@@ -1095,6 +1095,150 @@
             height: auto;
             display: block;
         }
+
+        /* --- 추가된 CSS 시작 --- */
+        /* 표 형식의 입실 정보 테이블 스타일 */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .info-table tr:first-child {
+            border-top: none;
+        }
+
+        .info-table td {
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+            vertical-align: middle;
+            background-color: #fff;
+        }
+        /* 첫 번째 셀(헤더) 스타일 */
+        .info-table td:first-child {
+            width: 120px;
+            background-color: #fdf2f2; /* 연한 자주색 배경 */
+            font-weight: 600;
+            color: #990000; /* 자주색 글씨 */
+            border-left: none;
+        }
+        
+        .info-table td:last-child {
+            border-right: none;
+        }
+
+        .info-table-sub {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table-sub td {
+            padding: 8px 15px;
+            background-color: #fff;
+        }
+        
+        .info-table-sub td:first-child {
+            width: 100px;
+            background-color: #f8f8f8;
+            font-weight: 500;
+            color: #777;
+        }
+        
+        .info-table-sub td:last-child {
+            font-weight: 400;
+            color: #333;
+        }
+
+        .info-table-sub .nested-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .info-table-sub .nested-list li {
+            margin-bottom: 5px;
+        }
+
+        /* 스텝별 절차 스타일 */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .step-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .step-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* 직사각형 모양으로 변경된 STEP 아이콘 컨테이너 */
+        .step-icon-container {
+            min-width: 80px; /* 너비 조절 */
+            height: 35px; /* 높이 조절 */
+            background-color: #990000;
+            color: #fff;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            font-size: 1.1em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-title {
+            font-size: 1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0px;
+        }
+
+        .step-description {
+            font-size: 0.9em;
+            color: #666;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .info-table td:first-child {
+                width: 100px;
+            }
+            .info-table td, .info-table-sub td {
+                padding: 10px;
+            }
+            .step-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+            .step-icon-container {
+                margin-bottom: 10px;
+            }
+        }
+        /* --- 추가된 CSS 끝 --- */
     </style>
 </head>
 <body>
@@ -1135,7 +1279,7 @@
                     <a href="#" class="nav-link mega-trigger" data-mega-menu-target="mega-menu-all">레지던스 소개</a>
                     <a href="#" class="nav-link mega-trigger" data-mega-menu-target="mega-menu-all">건물/시설/생활</a>
                     <a href="#" class="nav-link mega-trigger" data-mega-menu-target="mega-menu-all">입실 및 퇴실</a>
-                    <a href="#" class="nav-link mega-trigger" data-mega-menu-target="mega-menu-all">Q&A</a>
+                    <a href="#" class="nav-link" data-tab="tab-rules">Q&A</a>
                 </nav>
                 <div id="mega-menu-all" class="mega-menu">
                     <div class="mega-menu-content">
@@ -1318,16 +1462,106 @@
                 <div class="directions-section">
                     <div class="directions-title">입실 안내 및 절차</div>
                 </div>
-                <p>레지던스 입실 절차에 대해 안내드립니다.</p>
-                <ul>
-                    <li>입실 신청</li>
-                    <li>입실 가능 시, 입실 안내사항 및 입실신청서 제출 (안내 메일 발송 예정)</li>
-                    <li>입실 신청서 제출
-                        (입실 신청서 제출 이후, 입실 확정 여부는 별도 안내 예정)
-                    </li>
-                    <li>레지던스 이용료 선입금 (첫월 이용료 계좌 입금, 이후 급여 공제)</li>
-                    <li>입실 확정 (입실 확정 안내 메일 발송 예정)</li>
-                </ul>
+                
+                <!-- 표 형식으로 변경된 입실 정보 -->
+                <div class="guide-table-container">
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <td colspan="2"><div class="guide-title">입실 정보</div></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="table-header">신청 대상</td>
+                                <td>구로병원 간호부 신규 입사 간호사</td>
+                            </tr>
+                            <tr>
+                                <td class="table-header">성별</td>
+                                <td>여</td>
+                            </tr>
+                            <tr>
+                                <td class="table-header">입주 기간</td>
+                                <td>1년 (매월 1일 입주 원칙)</td>
+                            </tr>
+                            <tr>
+                                <td class="table-header">비용</td>
+                                <td>월 50만원 (관리비 포함, 공과금 별도)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <td colspan="2"><div class="guide-title">주요 시설</div></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="table-header">공용 시설</td>
+                                <td>
+                                    <ul class="nested-list">
+                                        <li>공용 주방(인덕션, 전자레인지 등 주방시설 구비)</li>
+                                        <li>공용 세탁실(세탁기, 건조기 구비), 무인택배함</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-header">방 내부 시설</td>
+                                <td>
+                                    <ul class="nested-list">
+                                        <li>1인실</li>
+                                        <li>개별 주방시설 없음</li>
+                                        <li>와이파이 O</li>
+                                        <li>개별 냉/난방 가능 (개별 에어컨, 개별 보일러)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="directions-section" style="margin-top: 30px;">
+                    <div class="directions-title">입실 절차</div>
+                </div>
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-icon-container">STEP 1</div>
+                        <div class="step-content">
+                            <div class="step-title">입실 신청</div>
+                            <div class="step-description"></div>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon-container">STEP 2</div>
+                        <div class="step-content">
+                            <div class="step-title">입실 안내사항 및 입실신청서 제출</div>
+                            <div class="step-description">(안내 메일 발송 예정)</div>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon-container">STEP 3</div>
+                        <div class="step-content">
+                            <div class="step-title">입실 신청서 제출</div>
+                            <div class="step-description">(입실 신청서 제출 이후, 입실 확정 여부는 별도 안내 예정)</div>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon-container">STEP 4</div>
+                        <div class="step-content">
+                            <div class="step-title">레지던스 이용료 선입금</div>
+                            <div class="step-description">(첫월 이용료 계좌 입금, 이후 급여 공제)</div>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon-container">STEP 5</div>
+                        <div class="step-content">
+                            <div class="step-title">입실 확정</div>
+                            <div class="step-description">(입실 확정 안내 메일 발송 예정)</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="tab-apply-form" class="tab-content">
                 <div class="directions-section">
@@ -1344,7 +1578,7 @@
                 </div>
                 <p>레지던스 이용료는 전월 급여에서 선공제되므로, 퇴실 원하시는 경우 <b><u>가급적 빠른 시일 내에 <퇴실 신청서> 작성</b></u>하여 <b><u>간호부 사무실 내 <우편함>으로 제출</u></b> 바랍니다.</p>
                 <ul>
-                    <li>레지던스 이용요금은 <b><u>매월 1일 ~ 말일 기준</u></b>이며, 중도 퇴실할 경우에도 <b><u>월 이용요금은 일할 환불이 불가</u></b>합니다.<br>
+                    <li>레지던스 이용요금은 <b><u>매월 1일 ~ 말일 기준</b></u>이며, 중도 퇴실할 경우에도 <b><u>월 이용요금은 일할 환불이 불가</b></u>합니다.<br>
                     (단, <b>공과금은 레지던스 관리사무실을 통하여 일할 정산하여 요급 납부 후 퇴실</b>하시기 바랍니다.)</li>
                     <li>사용하신 레지던스를 깨끗이 정리하고, 개인 물품은 반드시 회수 바랍니다.</li>
                     <li>퇴실 신청서를 작성하여 간호부로 제출 후, 관리실의 최종 확인을 받으시기 바랍니다.</li>
@@ -1570,7 +1804,7 @@
             const isClickInsideMenu = event.target.closest('.header');
             if (!isClickInsideMenu) {
                 megaMenuAll.classList.remove('active');
-                allMenuLinks.forEach(link => link.classList.remove('active'));
+                allMenuLinks.forEach(l => l.classList.remove('active'));
             }
         });
         
